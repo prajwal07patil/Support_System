@@ -15,6 +15,9 @@ import TechSupport from "./components/tech_support/TechSupport";
 import Assigned from "./components/tech_support/Assigned";
 import Resolved from "./components/tech_support/Resolved";
 import All from "./components/tech_support/All";
+import Login from "./components/Login";
+import Signup from "./components/Signup";
+import UserHome from "./components/users/UserHome";
 
 function App() {
   return (
@@ -25,7 +28,8 @@ function App() {
     <Route path="/" element={<Home/>}/>
 
     {/** User */}
-    <Route path="/user/connectus" element={<ConnectUs/>}/>
+    <Route path="/user" element={<UserHome/>}/>
+    <Route path="/user/createticket" element={<ConnectUs/>}/>
     <Route path="/user/tickets" element={<MyList/>}/>
     <Route path="/user/ticket/:ticketId" element={<UserTicket/>}/>
     
@@ -44,6 +48,11 @@ function App() {
     <Route path="/techsupport/assigned" element={<Assigned/>}/>
     <Route path="/techsupport/resolved" element={<Resolved/>}/>
     <Route path="/techsupport/all" element={<All/>}/>
+
+    {/** Common Pages */}
+    <Route path="/login" element={<Login/>} />
+    <Route path="/signup" element={<Signup/>} />
+
     </Routes>
     <Footer/>
     </Router>
