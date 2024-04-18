@@ -21,7 +21,7 @@ import UserHome from "./components/users/UserHome";
 
 function App() {
   return (
-    <div className="App">
+    <div>
     <Router>
     <Navbar/>
     <Routes>
