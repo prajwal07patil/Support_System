@@ -1,6 +1,23 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const AdminUserList = () => {
+  const [users, setUser] = useState([]);
+
+  const userList = async () => {
+    try {
+      const res = await axios.get("http://localhost:3001/users");
+      setUser(res.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    userList();
+  }, []);
+
   return (
     <div className="overflow-x-auto">
       <table className="min-w-full divide-y divide-gray-200">
@@ -27,8 +44,24 @@ const AdminUserList = () => {
           </tr>
         </thead>
         <tbody className="bg-white divide-y divide-gray-200">
-          <tr>
-            <td className="px-6 py-4 whitespace-nowrap">
+          
+          {
+            users && users.map((item)=> {
+              return(
+                <tr
+                key={item.id}
+                >
+                <td className="px-6 py-4 whitespace-nowrap"> <Link
+                to="/admin/user/123"
+                className="text-indigo-600 hover:text-indigo-900"
+              >{item.id}</Link></td>
+                <td className="px-6 py-4 whitespace-nowrap">{item.name}</td>
+                <td className="px-6 py-4 whitespace-nowrap">{item.email}</td>
+                </tr>
+              )
+            })
+          }
+           { /*<td className="px-6 py-4 whitespace-nowrap">
               <Link
                 to="/admin/user/123"
                 className="text-indigo-600 hover:text-indigo-900"
@@ -38,14 +71,9 @@ const AdminUserList = () => {
             </td>
             <td className="px-6 py-4 whitespace-nowrap">Balu Patil</td>
             <td className="px-6 py-4 whitespace-nowrap">Balupatil@nnf</td>
-          </tr>
-          <tr>
-            <td className="px-6 py-4 whitespace-nowrap">2</td>
-            <td className="px-6 py-4 whitespace-nowrap">Akhilesh Patil</td>
-            <td className="px-6 py-4 whitespace-nowrap">
-              Akhileshpatil@nnf
-            </td>
-          </tr>
+  */}
+         
+         
         </tbody>
       </table>
     </div>

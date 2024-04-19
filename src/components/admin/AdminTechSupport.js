@@ -1,4 +1,19 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
+
 const AdminTechSupport = () => {
+
+    const [techs, setTechs] = useState([]);
+
+    const techSupportList = async () => {
+        const res = await axios.get("http://localhost:3001/tech-support");
+        setTechs(res.data);
+    }
+
+    useEffect(()=> {
+        techSupportList()
+    },[])
+
     return (
         <div className="overflow-x-auto">
             <table className="min-w-full divide-y divide-gray-200">
@@ -11,18 +26,20 @@ const AdminTechSupport = () => {
                     </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
-                    <tr>
-                        <td className="px-6 py-4 whitespace-nowrap">Balu patil @nnf</td>
-                        <td className="px-6 py-4 whitespace-nowrap">Balupatil@nnf</td>
-                        <td className="px-6 py-4 whitespace-nowrap">2</td>
-                        <td className="px-6 py-4 whitespace-nowrap">1</td>
-                    </tr>
-                    <tr>
-                        <td className="px-6 py-4 whitespace-nowrap">Akhilesh patil @nnf</td>
-                        <td className="px-6 py-4 whitespace-nowrap">Akhileshpatil@nnf</td>
-                        <td className="px-6 py-4 whitespace-nowrap">2</td>
-                        <td className="px-6 py-4 whitespace-nowrap">1</td>
-                    </tr>
+                {
+                    techs && techs.map((item) => {
+                        return (
+                            <tr
+                            key={item.id}
+                            >
+                            <td className="px-6 py-4 whitespace-nowrap">{item.name}</td>
+                            <td className="px-6 py-4 whitespace-nowrap">{item.email}</td>
+                            <td className="px-6 py-4 whitespace-nowrap">1</td>
+                            <td className="px-6 py-4 whitespace-nowrap">4</td>
+                            </tr>
+                        )
+                    })
+                }
                 </tbody>
             </table>
         </div>
