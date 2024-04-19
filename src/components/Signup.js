@@ -15,12 +15,13 @@ const Signup = () => {
     e.preventDefault();
     setInput({ ...input, [e.target.id]: e.target.value });
   };
-  const onSubmitHandler = async (e) => {
+  const 
+  onSubmitHandler = async (e) => {
     try {
       e.preventDefault();
       const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
       // const passwordRegex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/
-      if (input?.name?.trim().length == 0) return setResponse("provied name");
+      if (input?.name?.trim().length === 0) return setResponse("provied name");
 
       if (!emailRegex.test(input?.email)) return setResponse("invalid email");
       const checkDuplicateEmail = await axios.get(
