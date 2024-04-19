@@ -1,39 +1,55 @@
 import { Link } from "react-router-dom";
 
 const AdminUserList = () => {
-    return (
-        <div className="flex justify-center m-4">
-            <table className="border-collapse border border-gray-400">
-                <thead>
-                    <tr>
-                        <th className="border border-gray-400 p-2">id</th>
-                        <th className="border border-gray-400 p-2 w-1/2" rowSpan={5}>Name</th>
-                        <th className="border border-gray-400 p-2 w-1/2" rowSpan={5}>Email</th>
-                        
-                    </tr>
-                </thead>
-                <tbody className="text-center">
-                <div>
-                
-                </div>
-                
-                    <tr>
-                    
-                        <td className="border border-gray-400 p-2 underline"><Link to="/admin/user/123">100000000000000</Link></td>
-                        <td className="border border-gray-400 p-2">Balu Patil</td>
-                        <td className="border border-gray-400 p-2">Balupatil@nnf</td>
-                        
-                    </tr>
-                    <tr>
-                        <td className="border border-gray-400 p-2">2</td>
-                        <td className="border border-gray-400 p-2">Akhilesh Patil</td>
-                        <td className="border border-gray-400 p-2">Akhileshpatil@nnf</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    );
-}
-
+  return (
+    <div className="overflow-x-auto">
+      <table className="min-w-full divide-y divide-gray-200">
+        <thead className="bg-gray-50">
+          <tr>
+            <th
+              scope="col"
+              className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+            >
+              ID
+            </th>
+            <th
+              scope="col"
+              className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+            >
+              Name
+            </th>
+            <th
+              scope="col"
+              className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+            >
+              Email
+            </th>
+          </tr>
+        </thead>
+        <tbody className="bg-white divide-y divide-gray-200">
+          <tr>
+            <td className="px-6 py-4 whitespace-nowrap">
+              <Link
+                to="/admin/user/123"
+                className="text-indigo-600 hover:text-indigo-900"
+              >
+                100000000000000
+              </Link>
+            </td>
+            <td className="px-6 py-4 whitespace-nowrap">Balu Patil</td>
+            <td className="px-6 py-4 whitespace-nowrap">Balupatil@nnf</td>
+          </tr>
+          <tr>
+            <td className="px-6 py-4 whitespace-nowrap">2</td>
+            <td className="px-6 py-4 whitespace-nowrap">Akhilesh Patil</td>
+            <td className="px-6 py-4 whitespace-nowrap">
+              Akhileshpatil@nnf
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  );
+};
 
 export default AdminUserList;

@@ -2,10 +2,10 @@ import { Link } from "react-router-dom";
 
 const TechSupport = () => {
     return (
-        <div className='flex justify-around items-center m-3'>
-          <button className='bg-[#4f6d7a] m-1 p-2 rounded-lg text-white'><Link to='/techsupport/assigned'>Assigned / Pending</Link></button>
-          <button className='bg-[#4f6d7a] m-1 p-2 rounded-lg text-white'><Link to='/techsupport/resolved'>Resolved</Link></button>
-          <button className='bg-[#4f6d7a] m-1 p-2 px-4 rounded-lg text-white'><Link to='/techsupport/all'>All</Link></button>
+        <div className='flex flex-col md:flex-row justify-around items-center m-3 mt-[20%]'>
+            <Link to='/techsupport/assigned' className='bg-[#781D42] m-1 p-2 rounded-lg text-white text-center md:px-4'>Assigned / Pending</Link>
+            <Link to='/techsupport/resolved' className='bg-[#781D42] m-1 p-2 rounded-lg text-white text-center md:px-4'>Resolved</Link>
+            <Link to='/techsupport/all' className='bg-[#781D42] m-1 p-2 rounded-lg text-white text-center md:px-4'>All</Link>
         </div>
     )
 }

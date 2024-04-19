@@ -4,11 +4,9 @@ import { useNavigate } from 'react-router-dom';
 import { addInfo } from '../redux/slice/ticketSlice';
 
 function ConnectUs() {
-  
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const ticketData = useSelector((state) => state.ticket.ticketData);
-  // console.log(ticketData)
 
   const [image, setImage] = useState(null);
   const [formData, setFormData] = useState({
@@ -44,34 +42,23 @@ function ConnectUs() {
     reader.readAsDataURL(file);
   };
 
-  
   return (
     <div className="flex justify-center items-center h-screen mt-6">
-      <div className="max-w-5xl w-full flex justify-center">
-        <div className="w-1/2 p-4">
-          {image && (
-            <img
-              src={image}
-              alt="Product"
-              className="max-w-full max-h-96 border rounded-lg shadow-2xl"
-            />
-          )}
-        </div>
-        <div className="w-1/2 p-4 bg-white rounded-lg shadow-2xl">
-          <h1 className="text-2xl font-bold mb-4 text-center">Connect us</h1>
-          <form>
-            <div className="mb-4">
-              <label htmlFor="profile" className="block mb-2">
-                Send Message File
-              </label>
-              <input
-                type="file"
-                id="profile"
-                name="profile"
-                className="w-full p-1 border rounded focus:outline-none"
-                onChange={handleFileChange}
+      <div className="max-w-full sm:max-w-5xl w-full flex flex-col sm:flex-row justify-center">
+        <div className="w-full sm:w-1/2 p-4">
+          <div className="max-h-72  border rounded-lg shadow-2xl">
+            {image && (
+              <img
+                src={image}
+                alt="Product"
+                className="max-w-full"
               />
-            </div>
+            )}
+          </div>
+        </div>
+        <div className="w-full sm:w-1/2 p-4 bg-white rounded-lg shadow-2xl">
+          <h1 className="text-2xl font-bold mb-4 text-center">Create Ticket</h1>
+          <form>
             <div className="mb-4">
               <input
                 type="text"
@@ -115,8 +102,20 @@ function ConnectUs() {
                 onChange={handleChange}
               />
             </div>
+            <div className="mb-4">
+              <label htmlFor="profile" className="block mb-2">
+                Send Message File
+              </label>
+              <input
+                type="file"
+                id="profile"
+                name="profile"
+                className="w-full p-1 border rounded focus:outline-none"
+                onChange={handleFileChange}
+              />
+            </div>
             <button
-              className="w-full bg-[#4f6d7a] text-white font-bold py-2 px-4 rounded-md my-3 row-span-3"
+              className="w-full bg-[#B9005B] text-white font-bold py-2 px-4 rounded-md my-3"
               onClick={onSubmitHandler}
             >
               Send

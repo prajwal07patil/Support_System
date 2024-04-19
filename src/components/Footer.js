@@ -1,9 +1,13 @@
 const Footer = () => {
     return (
-        <div className="flex justify-between bg-white rounded-b-xl border-t-2 absolute bottom-0">
-        <h3 >Footer Page</h3>
+        <div className="bg-white fixed bottom-0 w-full">
+            <div className="container mx-auto py-2">
+                <h3 className="text-center text-sm text-gray-700">
+                    CopyRight &copy; Noitavonne 2024 ❤
+                </h3>
+            </div>
         </div>
-    )
-}
+    );
+};
 
 export default Footer;

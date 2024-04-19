@@ -28,7 +28,7 @@ function App() {
     <Route path="/" element={<Home/>}/>
 
     {/** User */}
-    <Route path="/user" element={<UserHome/>}/>
+    <Route path="/users/:id" element={<UserHome/>}/>
     <Route path="/user/createticket" element={<ConnectUs/>}/>
     <Route path="/user/tickets" element={<MyList/>}/>
     <Route path="/user/ticket/:ticketId" element={<UserTicket/>}/>
