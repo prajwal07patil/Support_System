@@ -23,7 +23,7 @@ const Login = () => {
 
     const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     // const passwordRegex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/
-    if (input?.email.trim().length == 0) return setResponse("provide email");
+    if (input?.email.trim().length === 0) return setResponse("provide email");
     if (!emailRegex.test(input?.email)) return setResponse("invalid email");
     if (input?.password?.trim()?.length < 4)
       return setResponse("password should have at least 4 characters");
@@ -34,9 +34,9 @@ const Login = () => {
       },
     });
     // console.log(login.data);
-    if(login?.data?.length==0)return setResponse("email or password is incorrect")
-    dispatch(signInSuccess(login.data))
-    return navigate(`/${login?.data[0]?.type}/${login?.data[0]?.id}`)
+    if(login?.data?.length === 0)return setResponse("email or password is incorrect")
+    dispatch(signInSuccess({ id: login?.data[0]?.id, type: login?.data[0]?.type }))
+    return navigate(`/${login?.data[0]?.type}`)
   };
 
   return (

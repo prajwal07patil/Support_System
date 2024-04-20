@@ -39,7 +39,7 @@ const Signup = () => {
         id,
         email: input.email,
         password: input.password,
-        type: "users",
+        type: "user",
       });
 
       return setResponse("registred successfully");

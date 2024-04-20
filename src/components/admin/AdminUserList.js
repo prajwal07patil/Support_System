@@ -51,10 +51,7 @@ const AdminUserList = () => {
                 <tr
                 key={item.id}
                 >
-                <td className="px-6 py-4 whitespace-nowrap"> <Link
-                to="/admin/user/123"
-                className="text-indigo-600 hover:text-indigo-900"
-              >{item.id}</Link></td>
+                <td className="px-6 py-4 whitespace-nowrap">{item.id}</td>
                 <td className="px-6 py-4 whitespace-nowrap">{item.name}</td>
                 <td className="px-6 py-4 whitespace-nowrap">{item.email}</td>
                 </tr>

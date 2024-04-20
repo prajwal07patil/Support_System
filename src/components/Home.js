@@ -1,12 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 
 function Home() {
-  const currentUser = useSelector((state)=> state.user.currentUser);
- useEffect(()=> {
-  console.log(currentUser)
- },[currentUser]);
+  const navigate = useNavigate();
+  const currentUser = useSelector((state) => state.user.currentUser);
+  
+  useEffect(() => {
+    // console.log(currentUser);
+    if (currentUser) navigate(`/${currentUser?.type}`);
+  }, []);
 
   const text = "Welcome To Tech Support....";
   const [displayText, setDisplayText] = useState("");
