@@ -18,6 +18,28 @@ function AdminTicket() {
   const [canceled, setCanceled] = useState(false);
   const [selectedTechSupportId, setSelectedTechSupportId] = useState("");
 
+  const [input, setInput] = useState("");
+
+  const handleOnChange = (e) => {
+    setInput(e.target.value);
+  };
+
+  const sendMessage = async (e) => {
+    try {
+      e.preventDefault();
+      console.log(chatData);
+      getChatData();
+      const time = new Date().getTime() + 330 * 60 * 1000;
+      chatData?.messages?.push({ time, by: currentUser.type, message: input });
+      const response = await axios.put(`http://localhost:3001/chats/${chatData?.id}`, {
+        ...chatData,
+        messages: chatData.messages,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const getChatData = async () => {
     try {
       const response = await axios.get("http://localhost:3001/chats", {
@@ -177,6 +199,22 @@ function AdminTicket() {
                   {chat?.by}: {chat?.message}
                 </p>
               ))}
+               <div className="mt-4 md:absolute bottom-0 left-0 right-0">
+              <div className="flex justify-center items-center pb-[15px] pl-[30px] pr-[15px]">
+                <input
+                  type="text"
+                  className="w-full border rounded px-2 py-2 mr-2 focus:outline-none "
+                  placeholder="Ask a question for tech..."
+                  onChange={handleOnChange}
+                />
+                <button
+                  onClick={sendMessage}
+                  className="bg-[#f7931a] hover:bg-orange-600 text-white font-bold py-2 px-4 rounded"
+                >
+                  Send
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       ) : null}

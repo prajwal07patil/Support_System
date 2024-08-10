@@ -11,7 +11,7 @@ function CreateTicket() {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  
+
 
   const [image, setImage] = useState(null);
   const [formData, setFormData] = useState({
@@ -64,15 +64,15 @@ function CreateTicket() {
     reader.readAsDataURL(file);
   };
 
-  useEffect(() => {}, []);
+  useEffect(() => { }, []);
 
   return !currentUser || currentUser.type !== "user" ? (
     <Login />
-  ) :(
-    <div className="flex justify-center items-center min-h-screen mt-6">
-      <div className="max-w-full sm:max-w-5xl w-full flex flex-col sm:flex-row justify-center">
-        <div className="w-full sm:w-1/2 p-4">
-          <div className="h-[500px] border rounded-lg shadow-2xl overflow-hidden">
+  ) : (
+    <div className="flex justify-center mt-6">
+      <div className="grid grid-cols-12 gap-[15px]">
+        <div className="col-span-6 bg-white rounded-lg shadow-2xl">
+          <div className="h-[500px] w-[500px] p-5 rounded-lg shadow-2xl">
             {image && (
               <img
                 src={image}
@@ -82,71 +82,73 @@ function CreateTicket() {
             )}
           </div>
         </div>
-        <div className="w-full sm:w-1/2 p-4 bg-white rounded-lg shadow-2xl">
-          <h1 className="text-2xl font-bold mb-4 text-center">Create Ticket</h1>
-          <form>
-            <div className="mb-4">
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                className="w-full px-3 py-2 border rounded-lg focus:outline-none"
-                placeholder="Name"
-                onChange={handleChange}
-              />
-            </div>
-            <div className="mb-4">
-              <input
-                type="text"
-                id="email"
-                name="email"
-                value={formData.email}
-                className="w-full px-3 py-2 border rounded-lg focus:outline-none"
-                placeholder="Email"
-                onChange={handleChange}
-              />
-            </div>
-            <div className="mb-4">
-              <input
-                type="text"
-                id="mob"
-                name="mob"
-                value={formData.mob}
-                className="w-full px-3 py-2 border rounded-lg focus:outline-none"
-                placeholder="Phone No"
-                onChange={handleChange}
-              />
-            </div>
-            <div className="mb-4">
-              <textarea
-                id="message"
-                name="message"
-                value={formData.message}
-                className="w-full px-3 py-2 border rounded-lg focus:outline-none"
-                placeholder="Message"
-                onChange={handleChange}
-              />
-            </div>
-            <div className="mb-4">
-              <label htmlFor="profile" className="block mb-2">
-                Send Message File
-              </label>
-              <input
-                type="file"
-                id="profile"
-                name="profile"
-                className="w-full p-1 border rounded-lg focus:outline-none"
-                onChange={handleFileChange}
-              />
-            </div>
-            <button
-              className="w-full bg-[#B9005B] text-white font-bold py-2 px-4 rounded-md my-3"
-              onClick={onSubmitHandler}
-            >
-              Send
-            </button>
-          </form>
+        <div className="col-span-6 bg-white rounded-lg shadow-2xl">
+          <div className="p-4">
+            <div className="text-2xl font-bold mb-4 text-center">Create Ticket</div>
+            <form>
+              <div className="mb-4">
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  className="w-full px-3 py-2 border rounded-lg focus:outline-none"
+                  placeholder="Name"
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="mb-4">
+                <input
+                  type="text"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  className="w-full px-3 py-2 border rounded-lg focus:outline-none"
+                  placeholder="Email"
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="mb-4">
+                <input
+                  type="text"
+                  id="mob"
+                  name="mob"
+                  value={formData.mob}
+                  className="w-full px-3 py-2 border rounded-lg focus:outline-none"
+                  placeholder="Phone No"
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="mb-4">
+                <textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  className="w-full px-3 py-2 border rounded-lg focus:outline-none"
+                  placeholder="Message"
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="mb-4">
+                <label htmlFor="profile" className="block mb-2 text-[#000] font-medium">
+                  Send Message File
+                </label>
+                <input
+                  type="file"
+                  id="profile"
+                  name="profile"
+                  className="w-full p-2 border rounded-lg focus:outline-none"
+                  onChange={handleFileChange}
+                />
+              </div>
+              <button
+                className="w-full bg-[#f7931a] hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-md my-3"
+                onClick={onSubmitHandler}
+              >
+                Send
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </div>

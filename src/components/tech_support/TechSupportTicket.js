@@ -168,16 +168,16 @@ function TechsupportTicket() {
               ))}
 
             <div className="mt-4 md:absolute bottom-0 left-0 right-0">
-              <div className="flex">
+              <div className="flex justify-center items-center pb-[10px] pl-[30px] pr-[15px]">
                 <input
                   type="text"
-                  className="w-full border rounded px-2 py-1 mr-2 focus:outline-none "
+                  className="w-full border rounded px-2 py-2 mr-2 focus:outline-none "
                   placeholder="Ask a question for tech..."
                   onChange={handleOnChange}
                 />
                 <button
                   onClick={sendMessage}
-                  className="bg-[#21BF73] text-white font-bold py-2 px-4 rounded"
+                  className="bg-[#f7931a] hover:bg-orange-600 text-white font-bold py-2 px-4 rounded"
                 >
                   Send
                 </button>

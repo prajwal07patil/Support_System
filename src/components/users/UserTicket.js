@@ -138,7 +138,7 @@ function UserTicket() {
               {!status && !canceled && (
                 <button
                   onClick={cancelTicket}
-                  className="bg-[#F05454] text-white font-bold py-2 px-4 rounded"
+                  className="bg-[#f7931a] hover:bg-orange-600 text-white font-bold py-2 px-4 rounded"
                 >
                   Cancel
                 </button>

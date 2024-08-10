@@ -40,7 +40,7 @@ const Login = () => {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen">
+    <div className="flex justify-center items-center mt-[7%]">
       <div className="w-96 p-8 bg-white rounded-lg shadow-2xl">
         <h1 className="text-2xl font-bold mb-4 text-center">Login</h1>
         <form>
@@ -67,7 +67,7 @@ const Login = () => {
           <p>{response}</p>
 
           <button
-            className="w-full bg-[#B9005B] text-white font-bold py-2 px-4 rounded-md my-3"
+            className="w-full bg-[#f7931a] text-white font-bold py-2 px-4 rounded-md my-3"
             onClick={onSubmitHandler}
           >
             Login
